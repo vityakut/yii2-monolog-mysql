@@ -75,7 +75,7 @@ class MysqlHandler extends AbstractProcessingHandler
         $skipDatabaseModifications = false
     )
     {
-        $this->pdo = \Yii::$app->db->getMasterPdo();
+
         $this->table = $table;
         $this->additionalFields = $additionalFields;
         parent::__construct($level, $bubble);
@@ -91,6 +91,7 @@ class MysqlHandler extends AbstractProcessingHandler
      */
     private function initialize()
     {
+        $this->pdo = \Yii::$app->db->getMasterPdo();
         $this->pdo->exec(
             'CREATE TABLE IF NOT EXISTS `' . $this->table . '` '
             . '(id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, channel VARCHAR(255), level INTEGER, message LONGTEXT, time DATETIME, INDEX(channel) USING HASH, INDEX(level) USING HASH, INDEX(time) USING BTREE)'
