@@ -15,7 +15,7 @@ use yii\db\mssql\PDO;
  * Class MySQLHandler
  * @package wazaari\MysqlHandler
  */
-class MySQLHandler extends AbstractProcessingHandler
+class MysqlHandler extends AbstractProcessingHandler
 {
 
     /**
@@ -187,11 +187,12 @@ class MySQLHandler extends AbstractProcessingHandler
         }
 
         //'context' contains the array
+
         $contentArray = array_merge(array(
             'channel' => $record['channel'],
             'level' => $record['level'],
             'message' => $record['message'],
-            'time' => $record['datetime']->format('U')
+            'time' => $record['datetime']
         ), $record['context']);
 
         // unset array keys that are passed put not defined to be stored, to prevent sql errors
