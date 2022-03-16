@@ -13,7 +13,7 @@ use yii\db\mssql\PDO;
  * to write records in a MySQL table
  *
  * Class MySQLHandler
- * @package wazaari\MysqlHandler
+ * @package vityakut\MysqlHandler
  */
 class MysqlHandler extends AbstractProcessingHandler
 {
@@ -61,7 +61,6 @@ class MysqlHandler extends AbstractProcessingHandler
     /**
      * Constructor of this class, sets the PDO and calls parent constructor
      *
-     * @param PDO $pdo PDO Connector for the database
      * @param bool $table Table in the database to store the logs in
      * @param array $additionalFields Additional Context Parameters to store in database
      * @param bool|int $level Debug level which this handler should store
